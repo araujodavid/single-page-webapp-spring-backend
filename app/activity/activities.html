@@ -1,0 +1,38 @@
+<div ng-controller="activityController" layout="column" layout-fill>
+    <md-toolbar md-scroll-shrink>
+        <div class="md-toolbar-tools">
+            <h3>
+                <span>Registered Activities</span>
+            </h3>
+            <div layout="row" layout-margin>
+                <div flex flex-order="1">
+                    <md-button>New</md-button>
+                </div>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <md-list>
+            <md-item ng-repeat="activity in activities">
+                <md-item-content>
+                    <div class="md-tile-content">
+                        <h3>Identifier: {{activity.id}}</h3>
+                        <h4><b>{{activity.nome}}</b></h4>
+                        <p>
+                            Number of seats: {{activity.qtdVagas}}
+                        </p>
+                    </div>
+                    <div layout="row" layout-margin>
+                        <div flex flex-order="1">
+                            <md-button class="md-raised md-primary">Update</md-button>
+                        </div>
+                        <div flex flex-order="2">
+                            <md-button class="md-raised md-warn">Remove</md-button>
+                        </div>
+                    </div>
+                </md-item-content>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-item>
+        </md-list>
+    </md-content>
+</div>

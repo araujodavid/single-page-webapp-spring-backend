@@ -1,0 +1,26 @@
+{
+  "name": "single-page-webapp-angularjs",
+  "version": "1.0.0",
+  "homepage": "https://github.com/araujodavid/single-page-webapp-spring-backend",
+  "authors": [
+    "araujodavid"
+  ],
+  "description": "Sample application showing the use of the RESTful API via AngularJS",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.13",
+    "angular-material": "~0.7.1",
+    "angular-route": "~1.3.13",
+    "angular-resource": "~1.3.13"
+  }
+}
