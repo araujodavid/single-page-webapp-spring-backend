@@ -3,19 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <link rel="stylesheet" href="vendor/angular-material/angular-material.min.css"/>
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
     <title>AngularJS Activities App</title>
 </head>
-<body ng-app="activitiesApp" layout="column" ng-controller="activityController">
-    <div ng-view></div>
+<body ng-app="activitiesApp" ng-controller="activityController">
+    <div class="container">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">AngularJS Activities App</a>
+                </div>
 
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="menu-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="#">Activities</a></li>
+                        <li><a href="#">Institutions</a></li>
+                        <li><a href="#">Participants</a></li>
+                        <li><a href="#">Subscriptions</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div ng-view></div>
+    </div>
+
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="vendor/angular/angular.js"></script>
     <script src="vendor/angular-route/angular-route.js"></script>
     <script src="vendor/angular-resource/angular-resource.js"></script>
-    <script src="vendor/angular-animate/angular-animate.js"></script>
-    <script src="vendor/angular-aria/angular-aria.js"></script>
-    <script src="vendor/angular-material/angular-material.js"></script>
     <script src="app.js"></script>
     <script src="services/activity.service.js"></script>
     <script src="activity/activity.controller.js"></script>

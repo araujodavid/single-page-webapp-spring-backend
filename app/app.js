@@ -5,18 +5,14 @@
     'use strict';
 
     angular
-        .module('activitiesApp', ['ngMaterial', 'ngRoute', 'ngResource'])
-        .config(['$mdThemingProvider', '$routeProvider', config]);
+        .module('activitiesApp', ['ngRoute', 'ngResource'])
+        .config(['$routeProvider', config]);
 
     /**
      * Main settings for the AngularJS Activities App
-     * @param $mdThemingProvider
      * @param $routeProvider
      */
-    function config($mdThemingProvider, $routeProvider) {
-        //Use the 'blue-grey' theme - override default 'blue' theme
-        $mdThemingProvider.theme('default').primaryPalette('blue-grey');
-
+    function config($routeProvider) {
         $routeProvider
             .when('/activities', {
                 templateUrl: 'activity/activities.html',
