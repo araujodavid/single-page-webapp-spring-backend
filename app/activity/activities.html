@@ -2,6 +2,11 @@
     <h1>Activities</h1>
 </div>
 
+<div ng-show="message.status" class="alert {{message.class}} alert-dismissible" role="alert">
+    <button class="close" ng-click="removeAlert()"><span aria-hidden="true">&times;</span></button>
+    <strong>{{message.title}}</strong> {{message.text}}.
+</div>
+
 <div class="panel panel-default">
     <div class="panel-heading">List of Activities Registered</div>
     <div class="panel-body">
@@ -25,7 +30,7 @@
                     <td>{{activity.qtdVagas}}</td>
                     <td>
                         <button class="btn btn-primary btn-xs" type="submit">Update</button>
-                        <button class="btn btn-danger btn-xs" type="submit">Delete</button>
+                        <button class="btn btn-danger btn-xs" ng-click="deleteActivity(activity.id)">Delete</button>
                     </td>
                 </tr>
             </tbody>

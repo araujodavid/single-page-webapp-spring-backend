@@ -17,7 +17,10 @@
      */
     function initActivityController($log, $scope, $routeParams, activityService) {
 
+        $scope.message = {status: false};
         $scope.getActivity = getActivity;
+        $scope.deleteActivity = deleteActivity;
+        $scope.removeAlert = removeAlert;
 
         loadActivities();
 
@@ -36,11 +39,32 @@
             );
         };
 
-        /**
-         *
-         */
         function getActivity(id) {
 
+        };
+
+        function deleteActivity(id) {
+            activityService.delete({id: id},
+                function(success) {
+                    loadActivities();
+                    alert('alert-success', 'Well done!', success.message);
+                },
+                function(error) {
+                    alert('alert-danger', 'Oh snap!', 'Alguma coisa deu errado');
+                    $log.error(error);
+                }
+            );
+        };
+
+        function removeAlert() {
+            $scope.message.status = false;
+        };
+
+        function alert(css, title, text) {
+            $scope.message.status = true;
+            $scope.message.class = css;
+            $scope.message.title = title;
+            $scope.message.text = text;
         };
     };
 })();
