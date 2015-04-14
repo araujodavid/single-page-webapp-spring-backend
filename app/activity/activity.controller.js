@@ -47,7 +47,8 @@
         function submitFormActivity() {
             //vamos enviar a requisção ao servidor
             activityService.save($scope.atividade);
-            $location.path("#/activities");
+            $location.path("#activities");
+
         };
 
         function deleteActivity(id) {

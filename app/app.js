@@ -34,6 +34,6 @@
                 templateUrl: 'institution/institutions.html',
                 controller: 'institutionController'
             })
-            .otherwise({redirectTo: '/'});
+            .otherwise({redirectTo: '/activities'});
     };
 })();
