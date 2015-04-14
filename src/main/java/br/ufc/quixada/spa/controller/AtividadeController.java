@@ -9,9 +9,11 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestAttributes;
 
 import br.ufc.quixada.npi.enumeration.ResponseStatus;
 import br.ufc.quixada.npi.model.ResponseStatusMessage;
@@ -47,7 +49,7 @@ public class AtividadeController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public @ResponseBody ResponseStatusMessage insert(@Valid Atividade atividade) {
+	public @ResponseBody ResponseStatusMessage insert(@RequestBody Atividade atividade) {
 		log.debug("Atividade - POST");
 		atividadeService.save(atividade);
 		return new ResponseStatusMessage(ResponseStatus.SUCCESS, "Atividade inserida com sucesso");

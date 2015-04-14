@@ -28,7 +28,8 @@ public class CrossOriginResourceSharingFilter implements Filter {
 		// Used to allow AJAX requests from other hosts 
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS");
-		response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
+		response.setHeader("Access-Control-Allow-Headers", "Content-Type, X-Requested-With");
+		// Origin, X-Requested-With, Content-Type, Accept
 		chain.doFilter(request, response);
 	}
 

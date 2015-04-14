@@ -1,0 +1,41 @@
+<div ng-controller="institutionController" class="page-header">
+    <h1>Instutions</h1>
+</div>
+
+<div ng-show="message.status" class="alert {{message.class}} alert-dismissible" role="alert">
+    <button class="close" ng-click="removeAlert()"><span aria-hidden="true">&times;</span></button>
+    <strong>{{message.title}}</strong> {{message.text}}.
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">List of Institutions Registered</div>
+    <div class="panel-body">
+        <button type="button" class="btn btn-default">New Institution</button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Sigla</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="institution in institutions">
+                    <th scope="row">{{institution.id}}</th>
+                    <td>{{institution.nome}}</td>
+                    <td>{{institution.sigla}}</td>
+                    <td>
+                        <button class="btn btn-primary btn-xs" type="submit">Update</button>
+                        <button class="btn btn-danger btn-xs" ng-click="deleteInstitution(institution.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-hide="institutions.length" class="alert alert-info" role="alert" style="margin: 10px;">
+            <strong>Heads up!</strong> There are no registered instutions.
+        </div>
+    </div>
+</div>

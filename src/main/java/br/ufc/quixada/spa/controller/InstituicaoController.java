@@ -50,7 +50,7 @@ public class InstituicaoController {
 			return new ResponseStatusMessage(ResponseStatus.ERROR, result.getFieldError().getDefaultMessage());
 		} else {
 			instituicaoService.save(instituicao);
-			return new ResponseStatusMessage(ResponseStatus.SUCCESS, "Instituicao inserida com sucesso");
+			return new ResponseStatusMessage(ResponseStatus.SUCCESS, "Instituição inserida com sucesso");
 		}
 	}
 	
@@ -58,7 +58,7 @@ public class InstituicaoController {
 	public @ResponseBody ResponseStatusMessage delete(@PathVariable Integer id) {
 		log.debug("Instituicao - DELETE");
 		instituicaoService.delete(new Instituicao(id));
-		return new ResponseStatusMessage(ResponseStatus.SUCCESS, "Instituicao removida com sucesso");
+		return new ResponseStatusMessage(ResponseStatus.SUCCESS, "Instituição removida com sucesso");
 	}
 	
 	@RequestMapping(value="{id}", method = RequestMethod.PUT)
@@ -67,7 +67,7 @@ public class InstituicaoController {
 		instituicao.setId(id);
 		log.debug("Updating Instituicao: {}", instituicao);
 		instituicaoService.update(instituicao);
-		return new ResponseStatusMessage(ResponseStatus.SUCCESS, "Instituicao atualizada com sucesso");
+		return new ResponseStatusMessage(ResponseStatus.SUCCESS, "Instituição atualizada com sucesso");
 	}
 	
 }

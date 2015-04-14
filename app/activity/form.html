@@ -1,0 +1,25 @@
+<div ng-controller="activityController" class="page-header">
+<h1>Register Activity</h1>
+</div>
+
+<div class="panel panel-default">
+		<div class="panel-heading">Activity Information</div>
+		<div class="panel-body">
+        	<form name="formActivity" ng-submit="submitFormActivity()" novalidate>
+
+				<div class="form-group" ng-class="{ 'has-error' : formActivity.title.$invalid && !formActivity.title.$pristine }">
+					<label>Title</label>
+					<input type="text" name="nome" class="form-control" style="width:400px" ng-model="atividade.nome" required>
+					<p ng-show="formActivity.title.$invalid && !formActivity.title.$pristine" class="help-block">The title is required.
+					</p>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : formActivity.places.$invalid && !formActivity.places.$pristine }">
+					<label>Number of Places</label>
+					<input type="number" name="qtdVagas" class="form-control" style="width:200px" ng-model="atividade.qtdVagas" required>
+					<p ng-show="formActivity.places.$invalid && !formActivity.places.$pristine" class="help-block">The place is required.</p>
+				</div>
+				<button type="submit" class="btn btn-primary" ng-disabled="formActivity.$invalid">Confirm Register</button>
+			</form>
+		</div>
+</div>
+

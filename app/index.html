@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css"/>
     <title>AngularJS Activities App</title>
 </head>
-<body ng-app="activitiesApp" ng-controller="activityController">
+<body ng-app="myApp" >
     <div class="container">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -23,11 +23,11 @@
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="menu-navbar">
+                <div ng-controller="headerController" class="collapse navbar-collapse" id="menu-navbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="#">Activities</a></li>
-                        <li><a href="#">Institutions</a></li>
-                        <li><a href="#">Participants</a></li>
+                        <li ng-class="{active: isActive('/activities')}"><a href="#activities">Activities</a></li>
+                        <li ng-class="{active: isActive('/institutions')}"><a href="#institutions">Institutions</a></li>
+                        <li ng-class="{active: isActive('/participants')}"><a href="#participants">Participants</a></li>
                         <li><a href="#">Subscriptions</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
@@ -45,5 +45,10 @@
     <script src="app.js"></script>
     <script src="services/activity.service.js"></script>
     <script src="activity/activity.controller.js"></script>
+    <script src="services/participant.service.js"></script>
+    <script src="participant/participant.controller.js"></script>
+    <script src="services/institution.service.js"></script>
+    <script src="institution/institution.controller.js"></script>
+    <script src="header.controller.js"></script>
 </body>
 </html>

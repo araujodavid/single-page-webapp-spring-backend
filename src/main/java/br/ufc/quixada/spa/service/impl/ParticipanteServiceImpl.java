@@ -24,7 +24,7 @@ public class ParticipanteServiceImpl extends GenericServiceImpl<Participante> im
 		Participante participante = find(Participante.class, idParticipante);
 
 		// Insere atividade em participante apenas se o participante ainda não estiver naquela atividade
-		if (! findAtividadeEmParticipante(idAtividade, idParticipante)) {
+		if (!findAtividadeEmParticipante(idAtividade, idParticipante)) {
 			participante.getAtividades().add(atividade);
 			update(participante);
 			return "Participante inserido com sucesso na atividade";

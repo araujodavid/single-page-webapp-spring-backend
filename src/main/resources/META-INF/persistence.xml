@@ -37,9 +37,9 @@
       <property name="javax.persistence.jdbc.driver" 
                 value="org.postgresql.Driver" />
       <property name="javax.persistence.jdbc.user" 
-                value="regis" />
+                value="postgres" />
       <property name="javax.persistence.jdbc.password" 
-                value="" />
+                value="postgres" />
 
       <property name="hibernate.dialect" 
                 value="org.hibernate.dialect.PostgreSQLDialect"/>

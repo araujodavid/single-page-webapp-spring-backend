@@ -5,7 +5,7 @@
     'use strict';
 
     angular
-        .module('activitiesApp', ['ngRoute', 'ngResource'])
+        .module('myApp', ['ngRoute', 'ngResource'])
         .config(['$routeProvider', config]);
 
     /**
@@ -26,6 +26,14 @@
                 templateUrl: 'activity/form.html',
                 controller: 'activityController'
             })
-            .otherwise({redirectTo: '/activities'});
+            .when('/participants', {
+                templateUrl: 'participant/participants.html',
+                controller: 'participantController'
+            })
+            .when('/institutions', {
+                templateUrl: 'institution/institutions.html',
+                controller: 'institutionController'
+            })
+            .otherwise({redirectTo: '/'});
     };
 })();

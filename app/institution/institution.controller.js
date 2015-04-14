@@ -1,38 +1,37 @@
 /**
- * Created by david on 23/02/15.
+ * Created by douglas on 07/04/15.
  */
 (function() {
     'use strict';
 
     angular
         .module('myApp')
-        .controller('activityController', ['$log', '$scope', '$location', '$routeParams', 'activityService', initActivityController]);
+        .controller('institutionController', ['$log', '$scope', '$routeParams', 'institutionService', initInstitutionController]);
 
     /**
-     * Function responsible for the controller related to activitie entity
+     * Function responsible for the controller related to institution entity
      * @param $log
      * @param $scope
      * @param $routeParams
-     * @param activityService
+     * @param institutionService
      */
-    function initActivityController($log, $scope, $location, $routeParams, activityService) {
+    function initInstitutionController($log, $scope, $routeParams, institutionService) {
 
         $scope.message = {status: false};
-        $scope.getActivity = getActivity;
-        $scope.deleteActivity = deleteActivity;
+        $scope.getInstitution = getInstitution;
+        $scope.deleteInstitution = deleteInstitution;
         $scope.removeAlert = removeAlert;
-        $scope.submitFormActivity = submitFormActivity;
 
-        loadActivities();
+        loadInstitutions();
 
         //Internal functions
         /**
-         * Load all available activities
+         * Load all available institution
          */
-        function loadActivities() {
-            activityService.query(
+        function loadInstitutions() {
+            institutionService.query(
                 function(data) {
-                    $scope.activities = data;
+                    $scope.institutions = data;
                 },
                 function(error) {
                     $log.error(error);
@@ -40,20 +39,14 @@
             );
         };
 
-        function getActivity(id) {
+        function getInstitution(id) {
 
         };
 
-        function submitFormActivity() {
-            //vamos enviar a requisção ao servidor
-            activityService.save($scope.atividade);
-            $location.path("#/activities");
-        };
-
-        function deleteActivity(id) {
-            activityService.delete({id: id},
+        function deleteInstitution(id) {
+            institutionService.delete({id: id},
                 function(success) {
-                    loadActivities();
+                    loadInstitutions();
                     alert('alert-success', 'Well done!', success.message);
                 },
                 function(error) {
@@ -62,7 +55,6 @@
                 }
             );
         };
-
 
         function removeAlert() {
             $scope.message.status = false;

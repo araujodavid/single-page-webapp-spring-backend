@@ -1,38 +1,37 @@
 /**
- * Created by david on 23/02/15.
+ * Created by douglas on 07/04/15.
  */
 (function() {
     'use strict';
 
     angular
         .module('myApp')
-        .controller('activityController', ['$log', '$scope', '$location', '$routeParams', 'activityService', initActivityController]);
+        .controller('participantController', ['$log', '$scope', '$routeParams', 'participantService', initParticipantController]);
 
     /**
-     * Function responsible for the controller related to activitie entity
+     * Function responsible for the controller related to participant entity
      * @param $log
      * @param $scope
      * @param $routeParams
-     * @param activityService
+     * @param participantService
      */
-    function initActivityController($log, $scope, $location, $routeParams, activityService) {
+    function initParticipantController($log, $scope, $routeParams, participantService) {
 
         $scope.message = {status: false};
-        $scope.getActivity = getActivity;
-        $scope.deleteActivity = deleteActivity;
+        $scope.getParticipant = getParticipant;
+        $scope.deleteParticipant = deleteParticipant;
         $scope.removeAlert = removeAlert;
-        $scope.submitFormActivity = submitFormActivity;
 
-        loadActivities();
+        loadParticipants();
 
         //Internal functions
         /**
          * Load all available activities
          */
-        function loadActivities() {
-            activityService.query(
+        function loadParticipants() {
+            participantService.query(
                 function(data) {
-                    $scope.activities = data;
+                    $scope.participants = data;
                 },
                 function(error) {
                     $log.error(error);
@@ -40,20 +39,14 @@
             );
         };
 
-        function getActivity(id) {
+        function getParticipant(id) {
 
         };
 
-        function submitFormActivity() {
-            //vamos enviar a requisção ao servidor
-            activityService.save($scope.atividade);
-            $location.path("#/activities");
-        };
-
-        function deleteActivity(id) {
-            activityService.delete({id: id},
+        function deleteParticipant(id) {
+            participantService.delete({id: id},
                 function(success) {
-                    loadActivities();
+                    loadParticipants();
                     alert('alert-success', 'Well done!', success.message);
                 },
                 function(error) {
@@ -62,7 +55,6 @@
                 }
             );
         };
-
 
         function removeAlert() {
             $scope.message.status = false;

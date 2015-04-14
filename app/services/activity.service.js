@@ -5,7 +5,7 @@
     'use strict';
 
     angular
-        .module('activitiesApp')
+        .module('myApp')
         .factory('activityService', ['$resource', initActivityService]);
 
     /**
