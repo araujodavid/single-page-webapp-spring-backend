@@ -13,6 +13,6 @@
      * @param $resource
      */
     function initActivityService($resource) {
-        return $resource('http://virtuoso.mooo.com/spa/atividades/:id');
+        return $resource('http://localhost:8080/plim-local-service/mesas/:id');
     };
 })();

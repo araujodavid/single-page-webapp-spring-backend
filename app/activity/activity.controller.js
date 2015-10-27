@@ -6,7 +6,7 @@
 
     angular
         .module('myApp')
-        .controller('activityController', ['$log', '$scope', '$location', '$routeParams', 'activityService', initActivityController]);
+                .controller('activityController', ['$log', '$scope', '$location', '$routeParams', 'activityService', initActivityController]);
 
     /**
      * Function responsible for the controller related to activitie entity
@@ -46,9 +46,9 @@
 
         function submitFormActivity() {
             //vamos enviar a requisção ao servidor
-            activityService.save($scope.atividade);
-            $location.path("#activities");
-
+            activityService.save($scope.atividade
+            loadActivities();
+            $location.path("#");
         };
 
         function deleteActivity(id) {
